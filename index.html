@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kijani Trails | Discover Kenya</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon"
+        href="https://media.istockphoto.com/id/1435970474/vector/safari-animal-silhouette-vector-design-logo-icon.jpg?s=612x612&w=0&k=20&c=G8F727Xn9T1d8x90U3uJ-s4f6wQo1pT5v0uQ0v0uQ0v="
+        type="image/jpeg">
+
+</head>
+
+<body>
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header id="main-header">
+        <nav>
+            <h3>Kijani Trails</h3>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#tours">Tours</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <span class="wishlist-badge">Saved (<span id="wishlist-count">0</span>)</span>
+                <button id="plan-tour-btn" class="btn">plan your tour</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-img">
+            <img src="https://img.freepik.com/premium-photo/photo-wildlife-safari-with-majestic-animals-their-natural-habitat_933496-33598.jpg?w=2000"
+                alt="Beautiful travel destination">
+        </div>
+
+        <div class="hero-content">
+            <h1>DISCOVER KENYA</h1>
+            <p>Experience breathtaking safaris, pristine beaches, rich cultures and unforgettable adventures across
+                private conservancies and legendary wilderness.</p>
+            <a href="#tours">Explore Destinations</a>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT US SECTION (Matches "About" in Nav) -->
+    <section id="about" class="about-us">
+        <div class="about-header">
+            <h2>About Kijani Trails</h2>
+            <p>Born in Nairobi, dedicated to authentic and sustainable Kenyan expeditions.</p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>Founded by local wildlife conservationists and coastal guides, Kijani Trails connects travelers from
+                    around the world to the real heart of Kenya. We don't just sell tickets—we craft journeys that
+                    protect wildlife corridors and empower local communities from the Maasai Mara to Lamu Island.</p>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-box">
+                    <h3 id="stat-years">12+</h3>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="stat-tours">35+</h3>
+                    <p>Curated Safari Routes</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="stat-travelers">4,800+</h3>
+                    <p>Happy Travelers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. OUR SERVICES SECTION (Matches "Services" in Nav) -->
+    <section id="services" class="services">
+        <div class="services-header">
+            <h2>Our Services</h2>
+            <p>Everything you need for a seamless East African journey under one roof.</p>
+        </div>
+
+        <div class="services-container">
+            <div class="service-card">
+                <h3>4x4 Game Drive Safaris</h3>
+                <p>Custom Land Cruisers with pop-up roofs, onboard coolers, and KWS-certified wildlife trackers.</p>
+            </div>
+            <div class="service-card">
+                <h3>Eco-Lodge & Resort Booking</h3>
+                <p>Handpicked luxury tented camps in the bush and boutique beachfront villas along the Indian Ocean.</p>
+            </div>
+            <div class="service-card">
+                <h3>Airport, SGR & Bush Flights</h3>
+                <p>Seamless transfers from JKIA Nairobi, Madaraka Express train tickets, and local airstrip charters.
+                </p>
+            </div>
+            <div class="service-card">
+                <h3>Corporate & Group Retreats</h3>
+                <p>Team-building expeditions, photography workshops, and family reunion packages with group discounts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FEATURED TOURS SECTION (With Filter Buttons Ready for JS) -->
+    <section id="tours" class="featured-tours">
+        <div class="featured-tours-header">
+            <h2>Featured Tours</h2>
+            <p>Check out our most popular travel experiences across Kenya!</p>
+        </div>
+
+        <!-- Filter & Search Controls (For JS Lesson on Filtering) -->
+        <div class="tour-controls">
+            <div id="filter-buttons" class="tour-filters">
+                <button class="filter-btn active" data-filter="all">All Tours</button>
+                <button class="filter-btn" data-filter="safari">Safari</button>
+                <button class="filter-btn" data-filter="beach">Beach</button>
+                <button class="filter-btn" data-filter="mountain">Mountain</button>
+                <button class="filter-btn" data-filter="culture">Culture</button>
+            </div>
+            <input type="text" id="search-input" placeholder="Search destination (e.g. Mara, Diani)...">
+        </div>
+
+        <div id="tour-container" class="f-tour-container">
+            <!-- Tour 1 -->
+            <div class="f-tour" data-category="safari" data-price="450">
+                <div class="f-tour-img">
+                    <img src="https://img.freepik.com/free-photo/african-elephant-walking-grassland_1150-11329.jpg?w=2000"
+                        alt="Amboseli Elephant Safari">
+                </div>
+                <div class="f-tour-content">
+                    <span class="tour-tag">Safari • 3 Days</span>
+                    <h3>Amboseli Elephant Safari</h3>
+                    <p>Experience the thrill of seeing giant tuskers in their natural habitat beneath Mount Kilimanjaro.
+                    </p>
+                    <p class="tour-price"><strong>$450</strong> / person</p>
+                    <div class="tour-actions">
+                        <a href="#contact">Book Now</a>
+                        <button class="save-btn">♡ Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="f-tour" data-category="safari" data-price="890">
+                <div class="f-tour-img">
+                    <img src="https://img.freepik.com/free-photo/african-elephant-walking-grassland_1150-11329.jpg?w=2000"
+                        alt="Maasai Mara Migration">
+                </div>
+                <div class="f-tour-content">
+                    <span class="tour-tag">Safari • 5 Days</span>
+                    <h3>Maasai Mara Big Five</h3>
+                    <p>Track lions, leopards, and the Great Wildebeest Migration across golden savannah plains.</p>
+                    <p class="tour-price"><strong>$890</strong> / person</p>
+                    <div class="tour-actions">
+                        <a href="#contact">Book Now</a>
+                        <button class="save-btn">♡ Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="f-tour" data-category="beach" data-price="520">
+                <div class="f-tour-img">
+                    <img src="https://img.freepik.com/free-photo/african-elephant-walking-grassland_1150-11329.jpg?w=2000"
+                        alt="Diani Beach Escape">
+                </div>
+                <div class="f-tour-content">
+                    <span class="tour-tag">Beach • 4 Days</span>
+                    <h3>Diani Coast Getaway</h3>
+                    <p>Unwind on powder-white sands, snorkel vibrant coral reefs, and sail on a traditional sunset dhow.
+                    </p>
+                    <p class="tour-price"><strong>$520</strong> / person</p>
+                    <div class="tour-actions">
+                        <a href="#contact">Book Now</a>
+                        <button class="save-btn">♡ Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 4 -->
+            <div class="f-tour" data-category="mountain" data-price="680">
+                <div class="f-tour-img">
+                    <img src="https://img.freepik.com/free-photo/african-elephant-walking-grassland_1150-11329.jpg?w=2000"
+                        alt="Mount Kenya Trek">
+                </div>
+                <div class="f-tour-content">
+                    <span class="tour-tag">Mountain • 4 Days</span>
+                    <h3>Mt. Kenya Alpine Trek</h3>
+                    <p>Conquer Point Lenana through bamboo forests, alpine valleys, and dramatic equatorial glaciers.
+                    </p>
+                    <p class="tour-price"><strong>$680</strong> / person</p>
+                    <div class="tour-actions">
+                        <a href="#contact">Book Now</a>
+                        <button class="save-btn">♡ Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 5 -->
+            <div class="f-tour" data-category="culture" data-price="600">
+                <div class="f-tour-img">
+                    <img src="https://img.freepik.com/free-photo/african-elephant-walking-grassland_1150-11329.jpg?w=2000"
+                        alt="Lamu Cultural Tour">
+                </div>
+                <div class="f-tour-content">
+                    <span class="tour-tag">Culture • 3 Days</span>
+                    <h3>Lamu Swahili Heritage</h3>
+                    <p>Step back in time on Kenya's oldest living Swahili island with narrow streets and dhow cruises.
+                    </p>
+                    <p class="tour-price"><strong>$600</strong> / person</p>
+                    <div class="tour-actions">
+                        <a href="#contact">Book Now</a>
+                        <button class="save-btn">♡ Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TRIP COST ESTIMATOR SECTION (Ready for JS Math & Inputs Lesson) -->
+    <section id="estimator" class="trip-estimator">
+        <div class="estimator-header">
+            <h2>Instant Safari Cost Estimator</h2>
+            <p>Calculate your estimated trip budget in seconds before you book!</p>
+        </div>
+
+        <div class="estimator-container">
+            <div class="estimator-inputs">
+                <label>Choose Destination:
+                    <select id="calc-tour">
+                        <option value="150">Amboseli Elephant Safari ($150/day)</option>
+                        <option value="180">Maasai Mara Big Five ($180/day)</option>
+                        <option value="130">Diani Coast Getaway ($130/day)</option>
+                        <option value="170">Mt. Kenya Alpine Trek ($170/day)</option>
+                        <option value="200">Lamu Swahili Heritage ($200/day)</option>
+                    </select>
+                </label>
+
+                <label>Number of Travelers:
+                    <input type="number" id="calc-guests" value="2" min="1" max="20">
+                </label>
+
+                <label>Number of Days:
+                    <input type="number" id="calc-days" value="3" min="1" max="30">
+                </label>
+            </div>
+
+            <div class="estimator-result">
+                <p>Estimated Total Cost:</p>
+                <h3 id="total-price-display">$900</h3>
+                <small>*Includes accommodation, park fees & guide.</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. WHY CHOOSE US SECTION -->
+    <section id="why-us" class="why-choose-us">
+        <div class="why-choose-us-header">
+            <h2>Why Choose Us</h2>
+            <p>Discover the benefits of booking your travel experience with us!</p>
+        </div>
+
+        <div class="why-choose-us-container">
+            <div class="why-choose-us-item">
+                <h3>Expert Guides</h3>
+                <p>Our experienced guides provide in-depth knowledge and ensure a safe and enjoyable journey.</p>
+            </div>
+            <div class="why-choose-us-item">
+                <h3>Customizable Tours</h3>
+                <p>We offer flexible itineraries to suit your preferences and interests, making your trip truly unique.
+                </p>
+            </div>
+            <div class="why-choose-us-item">
+                <h3>Exceptional Service</h3>
+                <p>We prioritize customer satisfaction and go above and beyond to create memorable experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. TESTIMONIALS SECTION -->
+    <section id="testimonials" class="testimonials">
+        <div class="testimonials-header">
+            <h2>What Our Clients Say</h2>
+            <p>Read testimonials from our satisfied travelers!</p>
+        </div>
+
+        <div id="testimonial-list" class="testimonial-container">
+            <div class="testimonial">
+                <div class="testimonial-img">
+                    <img src="https://img.freepik.com/free-photo/portrait-happy-young-man_23-2149436190.jpg?w=2000"
+                        alt="Client 1">
+                </div>
+                <p>"I had an amazing experience with Kijani Trails! The Amboseli safari tour was unforgettable, and the
+                    guides were knowledgeable and friendly. Highly recommend!"</p>
+                <h4>- John Doe</h4>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-img">
+                    <img src="https://img.freepik.com/free-photo/portrait-happy-young-man_23-2149436190.jpg?w=2000"
+                        alt="Client 2">
+                </div>
+                <p>"The travel agency made my dream Kenyan vacation a reality. From the moment I booked to the end of my
+                    Diani trip, everything was seamless and well-organized. Thank you!"</p>
+                <h4>- Jane Smith</h4>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-img">
+                    <img src="https://img.freepik.com/free-photo/portrait-happy-young-man_23-2149436190.jpg?w=2000"
+                        alt="Client 3">
+                </div>
+                <p>"I can't thank this travel agency enough for the incredible experience they provided in the Maasai
+                    Mara. The accommodations were top-notch, and the activities were thrilling!"</p>
+                <h4>- Michael Johnson</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FREQUENTLY ASKED QUESTIONS (Ready for JS Accordion Lesson) -->
+    <section id="faq" class="faq">
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know before travelling to Kenya.</p>
+        </div>
+
+        <div id="faq-list" class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>When is the best time to see the Great Migration in Maasai Mara?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The best time to witness the Mara River crossings is between July and October, though wildlife
+                        viewing in Kenya is spectacular year-round.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Are park entrance fees included in the tour price?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All our listed package prices include KWS park entry fees, full-board lodge accommodation,
+                        and daily game drives.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>What payment methods do you accept?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept Visa, Mastercard, bank wire transfers, and M-Pesa for both local and international
+                        bookings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CONTACT US SECTION -->
+    <section id="contact" class="contact">
+        <div class="contact-header">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to book your next adventure? Get in touch with us!</p>
+        </div>
+
+        <div class="contact-container">
+            <form id="booking-form" action="#" method="post">
+                <input type="text" id="user-name" name="name" placeholder="Your Name" required>
+                <input type="email" id="user-email" name="email" placeholder="Your Email" required>
+                <textarea id="user-message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+                <p id="form-feedback" class="feedback-msg"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- 11. MULTI-COLUMN FOOTER SECTION -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Kijani Trails</h3>
+                <p>Authentic Kenyan safaris, coastal getaways, and mountain expeditions curated by local experts.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tours">Featured Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nairobi Office</h4>
+                <p>Kenyatta Avenue, Nairobi, Kenya</p>
+                <p>Phone: +254 700 123 456</p>
+                <p>Email: hello@kijanitrails.co.ke</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="footer-year">2026</span> Kijani Trails Travel Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 12. HIDDEN "PLAN YOUR TOUR" MODAL POPUP (Ready for JS Modal Lesson) -->
+    <div id="tour-modal" class="modal-overlay">
+        <div class="modal-box">
+            <span id="close-modal-btn" class="close-modal">&times;</span>
+            <h3>Quick Tour Planner</h3>
+            <p>Tell us your dream Kenyan trip and we'll send a custom itinerary within 2 hours.</p>
+            <form id="modal-form">
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <select required>
+                    <option value="">Select Travel Style</option>
+                    <option value="safari">Wildlife Safari</option>
+                    <option value="beach">Beach Holiday</option>
+                    <option value="combo">Bush & Beach Combo</option>
+                </select>
+                <input type="date" required>
+                <button type="submit" class="btn">Request Itinerary</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

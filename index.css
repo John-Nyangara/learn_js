@@ -1,0 +1,635 @@
+html {
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* 1. HEADER STYLES */
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 50px;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #f5a623;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wishlist-badge {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #f4f4f4;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+.btn {
+    border-radius: 20px;
+    background-color: #f5a623;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+/* 2. HERO SECTION STYLES */
+.hero {
+    position: relative;
+    height: 600px;
+}
+
+.hero-img {
+    overflow: hidden;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(199, 183, 7, 0.632), rgb(0, 0, 0));
+}
+
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    mix-blend-mode: darken;
+}
+
+.hero-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.hero-content a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #fff;
+    color: #534b05;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* 3. ABOUT US SECTION STYLES */
+.about-us {
+    margin: 50px 0;
+    padding: 50px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1;
+    line-height: 1.6;
+}
+
+.about-stats {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.stat-box {
+    background-color: #fff8eb;
+    border: 2px solid #f5a623;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+.stat-box h3 {
+    color: #f5a623;
+    font-size: 28px;
+    margin: 0 0 5px 0;
+}
+
+/* 4. OUR SERVICES SECTION STYLES */
+.services {
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    flex: 1;
+    border-top: 4px solid #f5a623;
+}
+
+/* 5. FEATURED TOURS STYLES */
+.featured-tours {
+    margin: 50px 0;
+    padding: 50px 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-tours-header {
+    text-align: center;
+}
+
+.tour-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 30px 0 30px;
+    width: 90%;
+}
+
+.tour-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #f5a623;
+    background-color: #fff;
+    color: #222;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #f5a623;
+    color: #fff;
+}
+
+#search-input {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 260px;
+}
+
+.f-tour-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    margin: 30px;
+}
+
+.f-tour {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+}
+
+.f-tour-img {
+    width: 100%;
+    height: 180px;
+}
+
+.f-tour-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.f-tour-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.tour-tag {
+    font-size: 12px;
+    color: #f5a623;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tour-price {
+    margin: 8px 0;
+}
+
+.tour-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.tour-actions a {
+    text-decoration: none;
+    color: #f5a623;
+    font-weight: bold;
+}
+
+.save-btn {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+/* 6. TRIP COST ESTIMATOR STYLES */
+.trip-estimator {
+    margin: 30px auto;
+    padding: 40px 10%;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.estimator-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.estimator-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.estimator-inputs {
+    display: flex;
+    gap: 20px;
+    flex: 2;
+}
+
+.estimator-inputs label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.estimator-inputs select,
+.estimator-inputs input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.estimator-result {
+    flex: 1;
+    text-align: center;
+    background-color: #f5a623;
+    color: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.estimator-result h3 {
+    font-size: 32px;
+    margin: 5px 0;
+}
+
+/* 7. WHY CHOOSE US STYLES (Original) */
+.why-choose-us {
+    margin: 10px 0;
+    padding: 30px 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(to right, #f5a623, rgb(225, 221, 221));
+}
+
+.why-choose-us-header {
+    text-align: center;
+}
+
+.why-choose-us-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 30px;
+}
+
+.why-choose-us-item {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* 8. TESTIMONIALS STYLES (Original) */
+.testimonials {
+    margin: 50px 0;
+    padding: 50px 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 20px;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f5a623;
+    border-radius: 10px;
+}
+
+.testimonial {
+    backdrop-filter: blur(50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+}
+
+.testimonial-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgb(246, 23, 23), rgba(0, 0, 0, 0.4));
+}
+
+.testimonial-img img {
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: darken;
+    object-fit: cover;
+}
+
+/* 9. FAQ SECTION STYLES */
+.faq {
+    margin: 50px auto;
+    padding: 20px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.faq-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px 20px;
+    background-color: #fff;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h4 {
+    margin: 0;
+}
+
+.faq-toggle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f5a623;
+}
+
+.faq-answer {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* 10. CONTACT SECTION STYLES */
+.contact {
+    margin: 50px 0;
+    padding: 50px 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+}
+
+.contact-container input,
+.contact-container textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.contact-container textarea {
+    height: 100px;
+}
+
+/* 11. FOOTER STYLES */
+.site-footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 10% 20px 10%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #f5a623;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+/* 12. MODAL POPUP STYLES (Hidden by default until JS opens it) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.modal-box input,
+.modal-box select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
