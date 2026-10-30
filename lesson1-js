@@ -1,0 +1,171 @@
+# Module 1: DOM Selection & Event Listeners
+**Project:** Kijani Trails Travel Agency  
+**Feature Goal:** Build an interactive "Plan Your Tour" Modal Popup (`#tour-modal`) that opens and closes on user interaction.
+
+---
+
+## 1. Prerequisites: Connecting JavaScript to HTML
+
+Before writing any JavaScript, ensure your `index.js` file is linked at the **very bottom** of your `index.html` file, right above the closing `</body>` tag:
+
+```html
+    <!-- Link JS at the bottom so HTML elements load first -->
+    <script src="index.js"></script>
+</body>
+</html>
+```
+
+> **Why at the bottom?** The browser reads HTML from top to bottom. If `<script src="index.js"></script>` is placed in the `<head>`, JavaScript will run before the buttons and modal exist on the page, causing `null` errors.
+
+---
+
+## 2. The Core Mental Model: The 3-Step Formula
+
+Almost every frontend JavaScript feature follows the same three steps:
+
+1. **SELECT:** Grab the HTML element from the page and store it in a variable.
+2. **LISTEN:** Wait for the user to perform an action (e.g., clicking a button or pressing a key).
+3. **REACT:** Change the element's CSS styles, classes, or text content.
+
+```text
+[ 1. Select Element ] ───► [ 2. Listen for 'click' ] ───► [ 3. Change CSS display ]
+  #plan-tour-btn             addEventListener()             modal.style.display = 'flex'
+```
+
+---
+
+## 3. Key JavaScript Concepts & Syntax
+
+| Concept / Method | Syntax | What It Does |
+| :--- | :--- | :--- |
+| **`const` Variable** | `const btn = ...` | Creates a constant container in memory to store a reference to an HTML element. |
+| **`getElementById()`** | `document.getElementById('id-name')` | Searches the HTML document and returns the single element matching that exact `id`. |
+| **`querySelector()`** | `document.querySelector('.class-name')` | Returns the **first** HTML element that matches any CSS selector (`#id`, `.class`, or `tag`). |
+| **`addEventListener()`** | `element.addEventListener('click', () => {})` | Attaches a "watcher" to an element that runs a function whenever the specified event happens. |
+| **Inline Style Manipulation** | `element.style.property = 'value'` | Updates the inline CSS of an element directly from JavaScript. |
+
+---
+
+## 4. Target HTML & CSS Reference
+
+Before writing the JS, inspect the exact HTML IDs and CSS rules we are controlling in our project:
+
+### Target HTML Elements (`index.html`)
+* **Trigger Button (in Header):** `<button id="plan-tour-btn" class="btn">plan your tour</button>`
+* **Modal Container (at bottom of body):** `<div id="tour-modal" class="modal-overlay">...</div>`
+* **Close Button (inside Modal):** `<span id="close-modal-btn" class="close-modal">&times;</span>`
+
+### Initial CSS State (`index.css`)
+```css
+.modal-overlay {
+    display: none; /* Starts completely hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+```
+* **To show the modal:** Change `display` from `'none'` to `'flex'`.
+* **To hide the modal:** Change `display` back to `'none'`.
+
+---
+
+## 5. Step-by-Step Implementation (`index.js`)
+
+### Step 1: Select the Elements from the DOM
+First, grab the three elements we need and store them in descriptive `const` variables:
+
+```javascript
+const planTourBtn = document.getElementById('plan-tour-btn');
+const tourModal = document.getElementById('tour-modal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+```
+
+### Step 2: Open the Modal on Button Click
+Attach a `'click'` event listener to `planTourBtn` that switches `tourModal`'s display to `'flex'`:
+
+```javascript
+planTourBtn.addEventListener('click', () => {
+    tourModal.style.display = 'flex';
+});
+```
+
+### Step 3: Close the Modal on "X" Click
+Attach a `'click'` event listener to `closeModalBtn` that switches `tourModal`'s display back to `'none'`:
+
+```javascript
+closeModalBtn.addEventListener('click', () => {
+    tourModal.style.display = 'none';
+});
+```
+
+### Step 4 (Bonus Pro UX): Close When Clicking Outside the Box
+Real users expect a popup to close if they click the dark background overlay (`#tour-modal`) outside the white form box (`modal-box`). We check `event.target` to see exactly what was clicked:
+
+```javascript
+tourModal.addEventListener('click', (event) => {
+    // If the user clicked the dark overlay itself (and not the inputs inside)
+    if (event.target === tourModal) {
+        tourModal.style.display = 'none';
+    }
+});
+```
+
+---
+
+## 6. Complete Module 1 Code (`index.js`)
+
+Copy this complete block into your `index.js` file to test Module 1:
+
+```javascript
+// ==========================================
+// MODULE 1: PLAN YOUR TOUR MODAL POPUP
+// ==========================================
+
+// 1. Select DOM Elements
+const planTourBtn = document.getElementById('plan-tour-btn');
+const tourModal = document.getElementById('tour-modal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+
+// 2. Open Modal when "plan your tour" button is clicked
+planTourBtn.addEventListener('click', () => {
+    tourModal.style.display = 'flex';
+});
+
+// 3. Close Modal when the "X" icon is clicked
+closeModalBtn.addEventListener('click', () => {
+    tourModal.style.display = 'none';
+});
+
+// 4. Close Modal when clicking on the dark background overlay
+tourModal.addEventListener('click', (event) => {
+    if (event.target === tourModal) {
+        tourModal.style.display = 'none';
+    }
+});
+```
+
+---
+
+## 7. Debugging & Common Mistakes
+
+If your modal does not open when you click the button, press **`F12`** (or `Right-Click -> Inspect -> Console`) in your browser and check for these common errors:
+
+1. **`Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')`**
+   * **Cause:** JavaScript couldn't find the ID in your HTML.
+   * **Fix:** Check for typos in `id="plan-tour-btn"` or `id="tour-modal"` in `index.html`, and verify `<script src="index.js"></script>` is at the bottom of `<body>`.
+2. **Nothing happens and the Console is completely empty**
+   * **Cause:** Your `index.html` or `index.js` file isn't saved, or `<script src="index.js"></script>` hasn't been added yet.
+   * **Fix:** Add `console.log("JS is connected!");` at the very top of `index.js` and refresh the page to confirm the file is running.
+
+---
+
+## 8. Self-Check Challenge
+
+Once you have the modal opening and closing, try adding **one more feature** on your own before moving to Module 2:
+* **Challenge:** Inside `#tour-modal`, there is a `<form id="modal-form">`. Can you select `#modal-form`, listen for the `'submit'` event, stop the page from reloading with `event.preventDefault()`, and close the modal (`tourModal.style.display = 'none'`) after displaying an `alert('Itinerary request sent!')`?
